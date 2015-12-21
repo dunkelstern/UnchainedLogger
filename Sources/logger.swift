@@ -7,10 +7,13 @@
 //
 
 #if os(Linux)
-    import Glibc
+    import UnchainedGlibc
 #else
     import Darwin
 #endif
+
+import UnchainedFile
+import UnchainedDate
 
 public class Log {
     public static var logLevel: LogLevel = .Debug
