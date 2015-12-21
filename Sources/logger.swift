@@ -6,7 +6,11 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin
+#endif
 
 public class Log {
     public static var logLevel: LogLevel = .Debug

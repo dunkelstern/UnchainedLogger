@@ -9,5 +9,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "UnchainedLogger"
+    name: "UnchainedLogger",
+    dependencies: [
+        .Package(url: "https://github.com/dunkelstern/UnchainedFile.git", majorVersion: 0),
+        .Package(url: "https://github.com/dunkelstern/UnchainedDate.git", majorVersion: 0)
+    ]
 )
