@@ -7,7 +7,7 @@
 //
 
 #if os(Linux)
-	import UnchainedGlibc
+	import Glibc
 #else
 	import Darwin
 #endif
@@ -81,13 +81,13 @@ public class Log {
         let date = Date(timestamp: time(nil))
 
         if self.logFile != nil {
-            date.isoDateString!.writeTo(&logFile!)
-            " [\(level)]: ".writeTo(&logFile!)
+            date.isoDateString!.write(to: &logFile!)
+            " [\(level)]: ".write(to: &logFile!)
             for item in msg {
-                item.writeTo(&logFile!)
-                " ".writeTo(&logFile!)
+                item.write(to: &logFile!)
+                " ".write(to: &logFile!)
             }
-            "\n".writeTo(&logFile!)
+            "\n".write(to: &logFile!)
         } else {
             if let logFileName = self.logFileName {
                 do {
@@ -102,7 +102,7 @@ public class Log {
             print("\(date.isoDateString!) [\(level)]: ", terminator: "")
             for item in msg {
                 var tmp = ""
-                item.writeTo(&tmp)
+                item.write(to: &tmp)
                 print(tmp + " ", terminator: "")
             }
             print("")

@@ -1,2 +1,6 @@
 .build
 Packages/
+.atllbuild/
+UnchainedLogger.sublime-workspace
+bin/
+external/
